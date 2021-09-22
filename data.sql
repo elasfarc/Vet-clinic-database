@@ -28,6 +28,7 @@ SET species='unspecified';
 ROLLBACK;
 
 BEGIN;
+
 UPDATE ANIMALS 
 SET species='digimon'
 WHERE name LIKE '%mon';
@@ -38,4 +39,20 @@ WHERE species IS NULL;
 
 COMMIT;
 
+BEGIN;
+
+DELETE FROM ANIMALS;
+
+ROLLBACK;
+
+BEGIN;
+DELETE FROM ANIMALS
+WHERE date_of_birth>DATE '01-01-2022';
+SAVEPOINT d1;
+UPDATE ANIMALS SET weight_kg=weight_kg*-1;
+ROLLBACK TO d1;
+UPDATE ANIMALS 
+SET weight_kg=weight_kg*-1
+WHERE weight_kg<0;
+COMMIT;
 
