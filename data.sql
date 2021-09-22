@@ -19,3 +19,11 @@ INSERT INTO ANIMALS(name, date_of_birth, weight_kg, neutered, escape_attempts) V
 INSERT INTO ANIMALS(name, date_of_birth, weight_kg, neutered, escape_attempts) VALUES ('Boarmon', DATE '2005-06-07', 20.4, TRUE, 7 );
 
 INSERT INTO ANIMALS(name, date_of_birth, weight_kg, neutered, escape_attempts) VALUES ('Blossom', DATE '1998-10-13', 17, TRUE, 3 );
+
+BEGIN;
+
+UPDATE ANIMALS
+SET species='unspecified';
+
+ROLLBACK;
+
