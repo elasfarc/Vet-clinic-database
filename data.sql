@@ -27,3 +27,15 @@ SET species='unspecified';
 
 ROLLBACK;
 
+BEGIN;
+UPDATE ANIMALS 
+SET species='digimon'
+WHERE name LIKE '%mon';
+
+UPDATE ANIMALS 
+SET species='pokemon'
+WHERE species IS NULL;
+
+COMMIT;
+
+
