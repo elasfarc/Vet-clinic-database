@@ -56,3 +56,33 @@ SET weight_kg=weight_kg*-1
 WHERE weight_kg<0;
 COMMIT;
 
+
+INSERT INTO owners(full_name, age) VALUES('Sam Smith', 34);
+INSERT INTO owners(full_name, age) VALUES('Jennifer Orwell', 19);
+INSERT INTO owners(full_name, age) VALUES('Bob', 45);
+INSERT INTO owners(full_name, age) VALUES('Melody Pond', 77);
+INSERT INTO owners(full_name, age) VALUES('Dean Winchester', 14);
+INSERT INTO owners(full_name, age) VALUES('Jodie Whittaker', 38);
+
+
+INSERT INTO species(name) VALUES('Pokemon');
+INSERT INTO species(name) VALUES('Digimon');
+
+UPDATE ANIMALS 
+SET species_id = CASE 
+WHEN name like '%mon' THEN 2
+ELSE 1
+END;
+
+BEGIN;
+UPDATE animals SET owner_id = 1 WHERE name = 'Agumon';
+UPDATE animals SET owner_id = 2 WHERE name = 'Gabumon' OR name = 'Pikachu';
+UPDATE animals SET owner_id = 3 WHERE name = 'Devimon' OR name = 'Plantmon';
+UPDATE animals SET owner_id = 4 WHERE name = 'Charmander' OR name = 'Squirtle' OR name = 'Blossom';
+UPDATE animals SET owner_id = 5 WHERE name = 'Angemon' OR name = 'Boarmon';
+COMMIT;
+
+
+
+
+
