@@ -47,7 +47,8 @@ PRIMARY KEY (vet_id, species_id)
 
 CREATE TABLE visits(
 vet_id INT, 
-animal_id INT, 
+animal_id INT,
+date_of_visit DATE, 
 FOREIGN KEY (vet_id) REFERENCES vets(id),
 FOREIGN KEY (animal_id) REFERENCES animals(id),
 PRIMARY KEY (vet_id, animal_id)

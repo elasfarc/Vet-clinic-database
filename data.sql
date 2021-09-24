@@ -83,6 +83,13 @@ UPDATE animals SET owner_id = (SELECT id FROM owners WHERE full_name='Dean Winch
 COMMIT;
 
 
+INSERT INTO vets(name, age, date_of_graduation) VALUES ('William Tatcher', 45, DATE '2000-04-23');
+INSERT INTO vets(name, age, date_of_graduation) VALUES ('Maisy Smith', 26, DATE '2019-01-17');
+INSERT INTO vets(name, age, date_of_graduation) VALUES ('Stephanie Mendez', 64, DATE '1981-05-04');
+INSERT INTO vets(name, age, date_of_graduation) VALUES ('Jack Harkness', 38, DATE '2008-06-08');
+
+
+
 
 
 
