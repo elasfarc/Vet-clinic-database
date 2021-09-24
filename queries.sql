@@ -32,3 +32,57 @@ SELECT neutered, MAX(weight_kg), MIN(weight_kg) FROM ANIMALS group by neutered;
 
 SELECT neutered, AVG(escape_attempts) FROM ANIMALS
 WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31' GROUP BY neutered;
+
+
+SELECT name FROM animals
+JOIN owners
+ON animals.owner_id = owners.id
+WHERE owners.full_name = 'Melody Pond';
+
+
+SELECT animals.name AS Pokemon species ANIMALS
+FROM animals 
+JOIN species 
+ON animals.species_id = species.id
+WHERE species.name = 'Pokemon';
+
+SELECT owners.full_name, animals.name
+FROM owners LEFT JOIN animals
+ON owners.id = animals.owner_id;
+
+
+SELECT species.name ,count(*) 
+FROM animals join species
+ON animals.species_id = species.id
+GROUP BY species.name;
+
+
+
+SELECT animals.name AS Digimon_owned_by_Jennifer_Orwell
+FROM animals JOIN species
+ON animals.species_id = species.id
+JOIN owners
+ON animals.owner_id = owners.id
+WHERE owners.full_name = 'Jennifer Orwell'
+AND species.name = 'Digimon';
+
+
+
+SELECT animals.name 
+AS animals_owned_by_Dean_Winchester_never_tried_to_escape
+FROM animals 
+JOIN owners
+ON animals.owner_id = owners.id
+WHERE owners.full_name = 'Dean Winchester'
+AND animals.escape_attempts = 0;
+
+
+
+
+
+SELECT count(animals.owner_id), owners.full_name
+FROM animals
+JOIN owners
+ON animals.owner_id = owners.id
+GROUP BY owners.id;
+
