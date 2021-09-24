@@ -86,3 +86,38 @@ JOIN owners
 ON animals.owner_id = owners.id
 GROUP BY owners.id;
 
+
+
+
+
+SELECT
+    animals.name AS animal_name,
+    date_of_visit AS last_visit_tatcher
+FROM 
+    animals
+JOIN
+     visits
+ON 
+    animals.id = visits.animal_id
+JOIN
+     vets
+ON 
+    vets.id = visits.vet_id
+WHERE 
+    vets.name='William Tatcher'
+ORDER BY
+     last_visit_tatcher 
+DESC LIMIT 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
