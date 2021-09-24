@@ -30,6 +30,12 @@ ADD owner_id INT,
 ADD FOREIGN KEY (owner_id) REFERENCES owners(id);
 
 
+CREATE TABLE vets(
+id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+name VARCHAR(150),
+age INT,
+date_of_graduation DATE
+);
 
 
 
