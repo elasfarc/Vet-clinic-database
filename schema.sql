@@ -30,8 +30,26 @@ ADD owner_id INT,
 ADD FOREIGN KEY (owner_id) REFERENCES owners(id);
 
 
+CREATE TABLE vets(
+id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+name VARCHAR(150),
+age INT,
+date_of_graduation DATE
+);
 
+CREATE TABLE specializations(
+vet_id INT, 
+species_id INT, 
+FOREIGN KEY (vet_id) REFERENCES vets(id),
+FOREIGN KEY (species_id) REFERENCES species(id),
+PRIMARY KEY (vet_id, species_id)
+);
 
-
-
-
+CREATE TABLE visits(
+vet_id INT, 
+animal_id INT,
+date_of_visit DATE, 
+FOREIGN KEY (vet_id) REFERENCES vets (id),
+FOREIGN KEY (animal_id) REFERENCES animals (id),
+PRIMARY KEY (vet_id, animal_id, date_of_visit)
+);
